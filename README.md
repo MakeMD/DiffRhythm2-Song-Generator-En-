@@ -5,32 +5,32 @@ https://github.com/user-attachments/assets/9d67a3df-893c-4ede-9364-10f8b7ca4431
 🚀 Installation
 Windows System Configuration:
 
-Download and install the latest version of espeak-ng.
+Download and install the latest version of [espeak-ng](https://github.com/espeak-ng/espeak-ng/releases/tag/1.52.0)
 
-Add a system environment variable named PHONEMIZER_ESPEAK_LIBRARY. The value should be the path to the libespeak-ng.dll file within your installed espeak-ng folder. Example: C:\Program Files\eSpeak NG\libespeak-ng.dll.
+Add a system environment variable named PHONEMIZER_ESPEAK_LIBRARY. The value should be the path to the `libespeak-ng.dll` file within your installed espeak-ng folder. Example: `C:\Program Files\eSpeak NG\libespeak-ng.dll`.
 
 Linux System:
 
-You need to install the espeak-ng package. Run the following command to install:
+You need to install the espeak-ng` package. Run the following command to install:
 
-apt-get -qq -y install espeak-ng
+`apt-get -qq -y install espeak-ng`
 
 Go to the ComfyUI custom_nodes directory:
 
-Bash
-
+```Bash
 cd ComfyUI/custom_nodes
+```
 Clone this repository:
 
-Bash
-
+```Bash
 git clone https://github.com/billwuhao/ComfyUI_DiffRhythm2.git
+```
 Install dependencies:
 
-Bash
-
+```Bash
 cd ComfyUI_DiffRhythm2
 pip install -r requirements.txt
+```
 Restart ComfyUI.
 
 📋 Usage Instructions
@@ -55,7 +55,7 @@ Unload Model (卸载模型): Whether to unload the model after generation to fre
 
 🏗️ Lyrics Structure Tags
 You can use the following structure tags to organize the lyrics:
-
+```
 [start] - Start marker
 [end] - End marker
 [intro] - Intro
@@ -69,7 +69,9 @@ You can use the following structure tags to organize the lyrics:
 [break] - Break
 [stop] - Stop
 [space] - Space/Pause
+```
 Lyrics Example
+```
 [start]
 [intro]
 [verse]
@@ -86,10 +88,11 @@ Let us sing together
 Sing out the dreams in our hearts
 [outro]
 [end]
+```
 Model Download
 Models will be downloaded automatically upon first use.
 
-You can also manually download them into the ComfyUI\models\TTS\DiffRhythm folder.
+You can also manually download them into the `ComfyUI\models\TTS\DiffRhythm` folder.
 
 The directory structure should be as follows:
 
@@ -118,14 +121,12 @@ The directory structure should be as follows:
 ```
 Manual download links:
 
-https://huggingface.co/ASLP-lab/DiffRhythm2/tree/main
-
-https://huggingface.co/OpenMuQ/MuQ-MuLan-large/tree/main
-
-https://huggingface.co/OpenMuQ/MuQ-large-msd-iter/tree/main
-
-https://huggingface.co/FacebookAI/xlm-roberta-base/tree/main
+- https://huggingface.co/ASLP-lab/DiffRhythm2/tree/main
+- https://huggingface.co/OpenMuQ/MuQ-MuLan-large/tree/main
+- https://huggingface.co/OpenMuQ/MuQ-large-msd-iter/tree/main
+- https://huggingface.co/FacebookAI/xlm-roberta-base/tree/main
 
 🙏 Acknowledgments
-xiaomi-research/diffrhythm2
+[xiaomi-research/diffrhythm2](https://github.com/xiaomi-research/diffrhythm2)
+
 
