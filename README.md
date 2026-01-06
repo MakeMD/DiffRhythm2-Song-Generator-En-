@@ -1,104 +1,98 @@
-ComfyUI_DiffRhythm2 是一个基于小米 DiffRhythm2 模型的 ComfyUI 扩展节点，能够通过 文本提示词/参考歌曲+歌词 生成高质量的音乐作品。
+ComfyUI_DiffRhythm2 is a ComfyUI extension node based on the Xiaomi DiffRhythm2 model, capable of generating high-quality musical works via Text Prompts / Reference Songs + Lyrics.
 
 https://github.com/user-attachments/assets/9d67a3df-893c-4ede-9364-10f8b7ca4431
 
-## 🚀 安装方法
+🚀 Installation
+Windows System Configuration:
 
-Windows 系统做如下配置. 
+Download and install the latest version of espeak-ng.
 
-下载安装最新版 [espeak-ng](https://github.com/espeak-ng/espeak-ng/releases/tag/1.52.0)
+Add a system environment variable named PHONEMIZER_ESPEAK_LIBRARY. The value should be the path to the libespeak-ng.dll file within your installed espeak-ng folder. Example: C:\Program Files\eSpeak NG\libespeak-ng.dll.
 
-添加系统环境变量 `PHONEMIZER_ESPEAK_LIBRARY`, 值是你安装的 espeak-ng 软件中 `libespeak-ng.dll` 文件的路径, 例如: `C:\Program Files\eSpeak NG\libespeak-ng.dll`.
+Linux System:
 
-Linux 系统下, 需要安装 `espeak-ng` 软件包. 执行如下命令安装:
+You need to install the espeak-ng package. Run the following command to install:
 
-`apt-get -qq -y install espeak-ng`
+apt-get -qq -y install espeak-ng
 
----
+Go to the ComfyUI custom_nodes directory:
 
-1. 进入 ComfyUI 的 `custom_nodes` 目录：
-```bash
+Bash
+
 cd ComfyUI/custom_nodes
-```
+Clone this repository:
 
-2. 克隆本仓库：
-```bash
+Bash
+
 git clone https://github.com/billwuhao/ComfyUI_DiffRhythm2.git
-```
+Install dependencies:
 
-3. 安装依赖：
-```bash
+Bash
+
 cd ComfyUI_DiffRhythm2
 pip install -r requirements.txt
-```
+Restart ComfyUI.
 
-4. 重启 ComfyUI
+📋 Usage Instructions
+Node Input Parameters
+Required Parameters
+Music Style Prompts (音乐风格提示词): Describe the desired music style, e.g., "Vocal, Indie, Pop, Synthesizer, Piano, Electric Guitar, Rock, Happy, Romantic".
 
-## 📋 使用说明
+Lyrics (歌词): Input the lyrics text. Supports structure tags (see explanation below).
 
-### 节点输入参数
+Max Song Length (歌曲最大长度): Set the maximum length of the generated song (in seconds). Range: 10-500 seconds. Usually generates songs around 2~3 minutes.
 
-#### 必需参数
-- **音乐风格提示词** (`音乐风格提示词`): 描述想要的音乐风格，如"Vocal, Indieie, Pop, Synthesizer, Piano, Electric Guitar, Rock, Happy, Romantic"
-- **歌词** (`歌词`): 输入歌词文本，支持结构标签（见下方说明）
-- **歌曲最大长度** (`歌曲最大长度`): 设置生成歌曲的最大长度（秒），范围 10-500 秒，通常生成2~3分钟歌曲。
+Optional Parameters
+Reference Audio (参考音乐): Upload a reference audio file to generate music with a similar style.
 
-#### 可选参数
-- **参考音乐** (`参考音乐`): 上传参考音频文件，生成相似风格的音乐
-- **步数** (`步数`): 扩散模型采样步数，默认 20，范围 10-100
-- **cfg** (`cfg`): 分类器自由引导强度，默认 2.0，范围 1.0-10.0
-- **seed** (`seed`): 随机种子，用于重现结果
-- **卸载模型** (`卸载模型`): 生成完成后是否卸载模型以释放内存
+Steps (步数): Diffusion model sampling steps. Default is 20, range is 10-100.
 
-### 🏗️ 歌词结构标签
+cfg (cfg): Classifier Free Guidance strength. Default is 2.0, range is 1.0-10.0.
 
-支持以下结构标签来组织歌词结构：
+seed (seed): Random seed for reproducing results.
 
-```
-[start] - 开始标记
-[end] - 结束标记
-[intro] - 前奏
-[verse] - 主歌
-[chorus] - 副歌
-[outro] - 尾奏
-[inst] - 器乐部分
-[solo] - 独奏部分
-[bridge] - 桥段
-[hook] - 钩子
-[break] - 间歇
-[stop] - 停止
-[space] - 空间/停顿
-```
+Unload Model (卸载模型): Whether to unload the model after generation to free up memory.
 
-#### 歌词示例
-```
+🏗️ Lyrics Structure Tags
+You can use the following structure tags to organize the lyrics:
+
+[start] - Start marker
+[end] - End marker
+[intro] - Intro
+[verse] - Verse
+[chorus] - Chorus
+[outro] - Outro
+[inst] - Instrumental
+[solo] - Solo
+[bridge] - Bridge
+[hook] - Hook
+[break] - Break
+[stop] - Stop
+[space] - Space/Pause
+Lyrics Example
 [start]
 [intro]
 [verse]
-在这美丽的夜晚
-星光洒满了天边
+In this beautiful night
+Starlight fills the sky
 [chorus]
-让我们一起歌唱
-唱出心中的梦想
+Let us sing together
+Sing out the dreams in our hearts
 [verse]
-微风轻拂过脸庞
-带来了花香芬芳
+The breeze gently brushes the face
+Bringing the fragrance of flowers
 [chorus]
-让我们一起歌唱
-唱出心中的梦想
+Let us sing together
+Sing out the dreams in our hearts
 [outro]
 [end]
-```
+Model Download
+Models will be downloaded automatically upon first use.
 
-### 模型下载
+You can also manually download them into the ComfyUI\models\TTS\DiffRhythm folder.
 
-**首次使用时会自动下载模型。**
+The directory structure should be as follows:
 
-可自己手动下载到 `ComfyUI\models\TTS\DiffRhythm` 文件夹下。
-
-结构如下:
-
-```
 .
 ├─DiffRhythm2
 │      config.json
@@ -120,14 +114,15 @@ pip install -r requirements.txt
         sentencepiece.bpe.model
         tokenizer.json
         tokenizer_config.json
-```
+Manual download links:
 
-手动下载地址:
-- https://huggingface.co/ASLP-lab/DiffRhythm2/tree/main  
-- https://huggingface.co/OpenMuQ/MuQ-MuLan-large/tree/main  
-- https://huggingface.co/OpenMuQ/MuQ-large-msd-iter/tree/main
-- https://huggingface.co/FacebookAI/xlm-roberta-base/tree/main
+https://huggingface.co/ASLP-lab/DiffRhythm2/tree/main
 
-## 🙏 致谢
+https://huggingface.co/OpenMuQ/MuQ-MuLan-large/tree/main
 
-[xiaomi-research/diffrhythm2](https://github.com/xiaomi-research/diffrhythm2)
+https://huggingface.co/OpenMuQ/MuQ-large-msd-iter/tree/main
+
+https://huggingface.co/FacebookAI/xlm-roberta-base/tree/main
+
+🙏 Acknowledgments
+xiaomi-research/diffrhythm2
