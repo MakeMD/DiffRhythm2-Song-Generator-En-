@@ -36,22 +36,22 @@ Restart ComfyUI.
 📋 Usage Instructions
 Node Input Parameters
 Required Parameters
-Music Style Prompts (音乐风格提示词): Describe the desired music style, e.g., "Vocal, Indie, Pop, Synthesizer, Piano, Electric Guitar, Rock, Happy, Romantic".
+Music Style Prompts: Describe the desired music style, e.g., "Vocal, Indie, Pop, Synthesizer, Piano, Electric Guitar, Rock, Happy, Romantic".
 
-Lyrics (歌词): Input the lyrics text. Supports structure tags (see explanation below).
+Lyrics: Input the lyrics text. Supports structure tags (see explanation below).
 
-Max Song Length (歌曲最大长度): Set the maximum length of the generated song (in seconds). Range: 10-500 seconds. Usually generates songs around 2~3 minutes.
+Max Song Length: Set the maximum length of the generated song (in seconds). Range: 10-500 seconds. Usually generates songs around 2~3 minutes.
 
 Optional Parameters
-Reference Audio (参考音乐): Upload a reference audio file to generate music with a similar style.
+Reference Audio: Upload a reference audio file to generate music with a similar style.
 
-Steps (步数): Diffusion model sampling steps. Default is 20, range is 10-100.
+Steps: Diffusion model sampling steps. Default is 20, range is 10-100.
 
 cfg (cfg): Classifier Free Guidance strength. Default is 2.0, range is 1.0-10.0.
 
 seed (seed): Random seed for reproducing results.
 
-Unload Model (卸载模型): Whether to unload the model after generation to free up memory.
+Unload Model: Whether to unload the model after generation to free up memory.
 
 🏗️ Lyrics Structure Tags
 You can use the following structure tags to organize the lyrics:
@@ -128,5 +128,6 @@ Manual download links:
 
 🙏 Acknowledgments
 [xiaomi-research/diffrhythm2](https://github.com/xiaomi-research/diffrhythm2)
+
 
 
