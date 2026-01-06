@@ -93,6 +93,7 @@ You can also manually download them into the ComfyUI\models\TTS\DiffRhythm folde
 
 The directory structure should be as follows:
 
+```
 .
 ├─DiffRhythm2
 │      config.json
@@ -114,6 +115,7 @@ The directory structure should be as follows:
         sentencepiece.bpe.model
         tokenizer.json
         tokenizer_config.json
+```
 Manual download links:
 
 https://huggingface.co/ASLP-lab/DiffRhythm2/tree/main
@@ -126,3 +128,4 @@ https://huggingface.co/FacebookAI/xlm-roberta-base/tree/main
 
 🙏 Acknowledgments
 xiaomi-research/diffrhythm2
+
